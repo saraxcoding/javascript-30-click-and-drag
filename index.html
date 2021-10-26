@@ -37,13 +37,15 @@
 <script>
   const slider = document.querySelector('.items');
   let isDown = false;
-  left startX;
+  let startX;
   let scrollLeft;
 
   slider.addEventListener('mousedown', (e) => {
     isDown = true;
     slider.classList.add('active');
-    console.log(e.pageX);
+    //console.log(e.pageX);
+    startX = e.pageX - slider.offsetLeft; //handles the offset of margin
+    console.log(startX);
   });
 
   slider.addEventListener('mouseleave', () => {
@@ -60,6 +62,7 @@
     if (!isDown) return; // stop the function from running
     console.log(isDown);
     //console.log('Do work!');
+    console.log(startX)
 });
 </script>
 
